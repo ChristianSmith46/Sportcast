@@ -9,17 +9,17 @@
 </head>
 <body>
 
-    <header>
+    <header class="w3-center">
         <h1>Sportcast</h1>
     </header>
 
     <nav>
-        <div>
-            <section>
+        <div class="w3-padding w3-row">
+            <section class="w3-container w3-col s6 w3-border w3-border-black">
                 <p>Current date/time <span id="dateTime"></span></p>
-                <p>Local Weather Forcast <span id="localWeather"></span></p>
+                <p>Local Weather Forecast <span id="localWeather"></span></p>
             </section>
-            <section>
+            <section class="w3-container w3-padding w3-col s6 w3-border w3-border-black">
                 <div>
                     <label>Search Teams</label>
                     <select name="teams" id="teams">
@@ -63,7 +63,14 @@
         </div>
     </nav>
 
-    <main>
+    <main class="w3-row w3-border w3-border-black w3-padding-16">
+        <div class="w3-container w3-col s6 w3-border w3-border-black" id="forecast">
+            <h2>Weather Forecast for Game Day</h2>
+        </div>
+
+        <div class="w3-container w3-col s6 w3-border w3-border-black" id="matchup">
+            <h2>Matchups</h2>
+        </div>
 
     </main>
 
