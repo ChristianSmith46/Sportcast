@@ -9,6 +9,13 @@ var espnURL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/
 var weatherApiKey = "4024dd0ace3444c4f05da7654e63fece";
 var weatherURL = "http://api.openweathermap.org/data/2.5/weather?zip=";
 
+// dateTimeEl.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+function showTime() {
+    dateTimeEl.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+}
+setInterval(showTime, 1000)
+showTime()
 
 function init() {
     displaySavedTeam();
