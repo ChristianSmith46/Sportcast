@@ -10,3 +10,5 @@ It also has a drop down bar with all of the teams.  Team is saved to local stora
 We are instructed to use two server-side API's.  The APIs we chose were Open Weather API for weather and ESPN for games and teams.
 
 The Main area of the page has the selected team and the opposing team and where they will be playing.  It will also show the weather conditions for game day.  
+
+The bottom of the page will feature links to NFL, ESPN, and the Open Weather API.  As well as our individual contact information.
