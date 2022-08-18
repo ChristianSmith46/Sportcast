@@ -7,4 +7,6 @@ Our idea for the page is an interactive site where one can look up their favorit
 
 It also has a drop down bar with all of the teams.  Team is saved to local storage upon selection.
 
-We are instructed to use two server-side API's 
+We are instructed to use two server-side API's.  The APIs we chose were Open Weather API for weather and ESPN for games and teams.
+
+The Main area of the page has the selected team and the opposing team and where they will be playing.  It will also show the weather conditions for game day.  
