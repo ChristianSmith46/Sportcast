@@ -83,7 +83,7 @@ function displayMatchup(index, header, weather){
 }
 
 function getLatLon(zipCode, header, index, daysUntil){
-    fetch("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + ",us&appid=" + weatherApiKey)
+    fetch("https://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + ",us&appid=" + weatherApiKey)
         .then(function (response) {
             return response.json();
         })
