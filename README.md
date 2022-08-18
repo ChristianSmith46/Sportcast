@@ -1,7 +1,7 @@
 # Sportcast
 
 
-This is the website for out first group project in the UConn full-stack bootcamp.  We have been tasked with making an interactive front-end application.   
+This is the website for our first group project in the UConn full-stack bootcamp.  We have been tasked with making an interactive front-end application.   
 
 Our idea for the page is an interactive site where one can look up they're favorite American football team and see the weather for their next upcoming game day.  The name of the site will be "Sportcast".
 
