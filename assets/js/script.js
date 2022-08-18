@@ -28,7 +28,7 @@ function searchTeam(event){
     }
     localStorage.setItem("saved-team", JSON.stringify(newTeamObject));
     displaySavedTeam();
-    getMatchup(this.value);
+    getMatchups(this.value);
 
 }
 
@@ -41,22 +41,31 @@ function displaySavedTeam(){
 
 // console.log(data.events[0].competitions[0].venue.address["zipCode"]);
 // moment(data.events[0].competitions[0].date).format("MMMM Do h:mm:ss a")
-function getMatchup(abbreviation){
+function getMatchups(abbreviation){
     fetch(espnURL + abbreviation + "/schedule")
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data);
-            console.log(data.events[0].name + " " + moment(data.events[0].competitions[0].date).format("MMMM Do h:mm a"));
-            console.log(data.events[0].competitions[0].venue.address["zipCode"]);
-            var zipCode = data.events[0].competitions[0].venue.address["zipCode"];
-            if (zipCode){
-                getLatLon(zipCode);
-            } else if (data.events[0].competitions[0].venue.fullName === "Paycor Stadium") {
-                getLatLon(45202);
+            var events = data.events;
+            var eventCount;
+            if (events.length > 3) {
+                eventCount = 3;
             } else {
-                console.log("No Zipcode Found");
+                eventCount = events.length;
+            }
+            for (let i = 0; i < eventCount; i++){
+                var zipCode = events[i].competitions[0].venue.address["zipCode"];
+                var header = events[i].name + " " + moment(data.events[i].competitions[0].date).format("MMMM Do h:mm a")
+                console.log(header);
+                if (zipCode){
+                    getLatLon(zipCode, header);
+                } else if (events[i].competitions[0].venue.fullName === "Paycor Stadium") {
+                    getLatLon(45202, header);
+                } else {
+                    console.log("No Zipcode Found");
+                }
             }
         });
 }
@@ -66,18 +75,18 @@ function displayMatchup(matchup){
 
 }
 
-function getLatLon(zipCode){
+function getLatLon(zipCode, header){
     fetch("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + ",us&appid=" + weatherApiKey)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            getWeather(data.lat, data.lon);
+            getWeather(data.lat, data.lon, header);
         })
 
 }
 
-function getWeather(lat, lon) {
+function getWeather(lat, lon, header) {
     fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=" + weatherApiKey)
         .then(function (response) {
             return response.json();
