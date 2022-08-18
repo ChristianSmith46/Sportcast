@@ -15,6 +15,10 @@ function showTime() {
 }
 
 function init() {
+    var team = JSON.parse(localStorage.getItem("saved-team"));
+    if (team) {
+        getMatchups(team.abbreviation);
+    }
     setInterval(showTime, 1000);
     showTime()
     displaySavedTeam();
@@ -57,12 +61,17 @@ function getMatchups(abbreviation){
             }
             for (let i = 0; i < eventCount; i++){
                 var zipCode = events[i].competitions[0].venue.address["zipCode"];
-                var header = events[i].name + " " + moment(data.events[i].competitions[0].date).format("MMMM Do h:mm a")
+                var header = events[i].name + " " + moment(data.events[i].competitions[0].date).format("MMMM Do h:mm a");
+
+                var daysUntil = moment(data.events[i].competitions[0].date).format("DDD") - moment().format("DDD");
+
                 console.log(header);
                 if (zipCode){
-                    getLatLon(zipCode, header);
+                    getLatLon(zipCode, header, i, daysUntil);
                 } else if (events[i].competitions[0].venue.fullName === "Paycor Stadium") {
-                    getLatLon(45202, header);
+                    getLatLon(45202, header, i, daysUntil);
+                } else if (events[i].competitions[0].venue.fullName === "Acrisure Stadium"){
+                    getLatLon(15212, header, i, daysUntil);
                 } else {
                     console.log("No Zipcode Found");
                 }
@@ -71,28 +80,34 @@ function getMatchups(abbreviation){
 }
 
 
-function displayMatchup(matchup){
-
+function displayMatchup(index, header, weather){
+    document.getElementById("matchupCard" + index).innerHTML = header;
+    document.getElementById("weatherCard" + index).innerHTML = weather;
 }
 
-function getLatLon(zipCode, header){
+function getLatLon(zipCode, header, index, daysUntil){
     fetch("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + ",us&appid=" + weatherApiKey)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            getWeather(data.lat, data.lon, header);
+            if (daysUntil >= 0 && daysUntil < 8) {
+                getWeather(data.lat, data.lon, header, index, daysUntil);
+            } else {
+                displayMatchup(index, header, "Weather out of range");
+            }
         })
 
 }
 
-function getWeather(lat, lon, header) {
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=" + weatherApiKey)
+function getWeather(lat, lon, header, index, daysUntil) {
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly,alerts&appid=" + weatherApiKey)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data);
+            displayMatchup(index, header, data.daily[daysUntil].weather[0].description + " " + data.daily[daysUntil].temp.day);
         });
 }
 
