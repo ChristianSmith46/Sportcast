@@ -18,14 +18,14 @@
 
     <nav>
         <!-- Setting columns at the top of the screen -->
-        <div class="w3-mobile w3-padding w3-row black-text">
+        <div class="w3-mobile w3-padding w3-row white-text">
             <section class="w3-mobile w3-container w3-col s6 w3-border w3-border-black">
-                <p>Current local date/time:<br><br> <span id="dateTime"></span></p>
+                <p class="black-text">Current local date/time:<br><br> <span id="dateTime"></span></p>
             </section>
             <section class="w3-mobile w3-container w3-padding w3-col s6 w3-border w3-border-black">
                 <!-- Creating a div with a dropdown menu of available teams -->
                 <div>
-                    <label>Search Teams</label>
+                    <label class="black-text">Search Teams</label>
                     <select name="teams" id="teams">
                         <!-- Empty selection in order to prevent issues with the Falcons search. It would default to Falcons but force you to select another team, then click Falcons again in order to get the data.-->
                         <option value=""></option>
@@ -63,7 +63,7 @@
                     </select>
                 </div>
                 <div>
-                    <p>Current team: <span id="savedTeams"></span></p>
+                    <p class="black-text">Current team: <span id="savedTeams"></span></p>
                     <!--Showing the current team results you are viewing-->
                 </div>
             </section>
@@ -72,23 +72,23 @@
     <!--Upcoming Games header/title-->
     <main class="w3-row w3-border w3-border-black w3-padding-16">
         <div class="w3-container w3-border w3-border-black" id="forecast">
-            <h2 class="w3-center">Upcoming Games</h2>
+            <h2 class="w3-center white-text">Upcoming Games</h2>
         </div>
     </main>
     <!-- Creating 3 separate cards for upcoming games and associated weather. Placeholder text shows only if there is no team selected.  -->
-    <div class="w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
+    <div class="white-text w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
         <header id="matchupCard0" class="w3-container w3-blue w3-center">Matchup Info</header>
         <p id="weatherCard0" class="w3-container w3-center">Weather Info</p>
     </div>
-    <div class="w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
+    <div class=" white-text w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
         <header id="matchupCard1" class="w3-container w3-blue w3-center">Matchup Info</header>
         <p id="weatherCard1" class="w3-container w3-center">Weather Info</p>
     </div>
-    <div class="w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
+    <div class="white-text w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
         <header id="matchupCard2" class="w3-container w3-blue w3-center">Matchup Info</header>
         <p id="weatherCard2" class="w3-container w3-center">Weather Info</p>
     </div>
-    <footer class="footerContainer w3-container w3-padding w3-border w3-border-blue">
+    <footer class="white-text footerContainer w3-container w3-padding w3-border w3-border-blue">
         <span>
             Contact us: Nelsondrozd@gmail.com, Christian.46.smith@gmail.com, CPivirotto@mac.com <br> 
         </span>

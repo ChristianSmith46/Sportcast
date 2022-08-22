@@ -3,17 +3,17 @@ header h1 {
     color:black
 }
 
+.white-text {
+    color: white;
+}
+
 .black-text {
-    color: black;
+    color:black
 }
 
 /* Added this to keep the two different sections matching in height. Would have used an additional class instead of a universal selector but these are the only sections in the application. */
 section {
     height: 100px;
-}
-
-body {
-    color: black;
 }
 
 footer {
