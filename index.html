@@ -11,14 +11,14 @@
 </head>
 
 <body>
- <!-- Header for the name of the Project -->
+    <!-- Header for the name of the Project -->
     <header class="w3-center">
         <h1>Sportcast</h1>
     </header>
 
-    <nav> 
+    <nav>
         <!-- Setting columns at the top of the screen -->
-        <div class="w3-mobile w3-padding w3-row">
+        <div class="w3-mobile w3-padding w3-row black-text">
             <section class="w3-mobile w3-container w3-col s6 w3-border w3-border-black">
                 <p>Current local date/time:<br><br> <span id="dateTime"></span></p>
             </section>
@@ -26,7 +26,8 @@
                 <!-- Creating a div with a dropdown menu of available teams -->
                 <div>
                     <label>Search Teams</label>
-                    <select name="teams" id="teams"> <!-- Empty selection in order to prevent issues with the Falcons search. It would default to Falcons but force you to select another team, then click Falcons again in order to get the data.-->
+                    <select name="teams" id="teams">
+                        <!-- Empty selection in order to prevent issues with the Falcons search. It would default to Falcons but force you to select another team, then click Falcons again in order to get the data.-->
                         <option value=""></option>
                         <option value="ATL">Falcons</option>
                         <option value="BAL">Ravens</option>
@@ -62,12 +63,13 @@
                     </select>
                 </div>
                 <div>
-                    <p>Current team: <span id="savedTeams"></span></p> <!--Showing the current team results you are viewing-->
+                    <p>Current team: <span id="savedTeams"></span></p>
+                    <!--Showing the current team results you are viewing-->
                 </div>
             </section>
         </div>
     </nav>
-<!--Upcoming Games header/title-->
+    <!--Upcoming Games header/title-->
     <main class="w3-row w3-border w3-border-black w3-padding-16">
         <div class="w3-container w3-border w3-border-black" id="forecast">
             <h2 class="w3-center">Upcoming Games</h2>
@@ -75,7 +77,7 @@
     </main>
     <!-- Creating 3 separate cards for upcoming games and associated weather. Placeholder text shows only if there is no team selected.  -->
     <div class="w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
-        <header id="matchupCard0"class="w3-container w3-blue w3-center">Matchup Info</header>
+        <header id="matchupCard0" class="w3-container w3-blue w3-center">Matchup Info</header>
         <p id="weatherCard0" class="w3-container w3-center">Weather Info</p>
     </div>
     <div class="w3-container w3-card-4 w3-margin-bottom w3-border w3-border-black">
@@ -86,9 +88,9 @@
         <header id="matchupCard2" class="w3-container w3-blue w3-center">Matchup Info</header>
         <p id="weatherCard2" class="w3-container w3-center">Weather Info</p>
     </div>
-    <footer class="w3-container w3-padding w3-border w3-border-blue">
+    <footer class="footerContainer w3-container w3-padding w3-border w3-border-blue">
         <span>
-            Contact us: Nelsondrozd@gmail.com, Christian.46.smith@gmail.com, CPivirotto@mac.com <br>
+            Contact us: Nelsondrozd@gmail.com, Christian.46.smith@gmail.com, CPivirotto@mac.com <br> 
         </span>
         <span>
             <a href="https://www.nfl.com/">NFL.com</a>
@@ -101,7 +103,7 @@
         </span>
 
     </footer>
-<!--Sources for moment and our JS script-->
+    <!--Sources for moment and our JS script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 
