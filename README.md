@@ -1,5 +1,6 @@
 # Sportcast
 
+[Deployed Site](https://christiansmith46.github.io/Sportcast/)
 
 This is the website for our first group project in the UConn full-stack bootcamp.  We have been tasked with making an interactive front-end application.   
 
@@ -12,3 +13,5 @@ We are instructed to use two server-side API's.  The APIs we chose were Open Wea
 The Main area of the page has the selected team and the opposing team and where they will be playing.  It will also show the weather conditions for game day.  
 
 The bottom of the page will feature links to NFL, ESPN, and the Open Weather API.  As well as our individual contact information.
+
+![screenshot](../Sportcast/assets/Project1Screenshot.png)
