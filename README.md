@@ -14,4 +14,4 @@ The Main area of the page has the selected team and the opposing team and where 
 
 The bottom of the page will feature links to NFL, ESPN, and the Open Weather API.  As well as our individual contact information.
 
-![screenshot](../Sportcast/assets/Project1Screenshot.png)
+![screenshot](./assets/Project1Screenshot.png)
