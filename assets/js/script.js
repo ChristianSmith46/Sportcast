@@ -54,7 +54,7 @@ function displaySavedTeam(){
 
 // Function that fetches the ESPN api
 function getMatchups(abbreviation){
-    fetch(espnURL + abbreviation + "/schedule")
+    fetch(espnURL + abbreviation + "/schedule?seasontype=2")
         .then(function (response) {
             return response.json();
         })
@@ -67,7 +67,7 @@ function getMatchups(abbreviation){
             // Loop that iterates over each event in the events array
             for (let i = 0; i < events.length; i++){
                 // If we already have our max events chosen to display then break
-                if (eventCount >= 2){
+                if (eventCount > 2){
                     break;
                 }
                 
